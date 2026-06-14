@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FIFA 2026 Match Predictor</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ====== HEADER ====== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-block">
+        <span class="logo-trophy">🏆</span>
+        <div>
+          <span class="logo-title">FIFA 2026</span>
+          <span class="logo-sub">Match Predictor</span>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <a href="#predictor">Predictor</a>
+        <a href="#top-teams">Top Teams</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ====== HERO ====== -->
+  <section class="hero">
+    <div class="hero-pitch"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">USA · Canada · Mexico</p>
+      <h1 class="hero-headline">Who Will<br><em>Lift the Cup?</em></h1>
+      <p class="hero-body">Select two nations. Our algorithm weighs overall ratings, attack, defence, and recent form to forecast the clash.</p>
+      <a href="#predictor" class="btn btn-hero">Run a Prediction</a>
+    </div>
+    <div class="hero-badge">2026</div>
+  </section>
+
+  <!-- ====== PREDICTOR ====== -->
+  <section class="predictor-section" id="predictor">
+    <div class="container">
+      <h2 class="section-title">Head-to-Head Predictor</h2>
+
+      <!-- Team selectors -->
+      <div class="team-selectors">
+
+        <!-- Team A -->
+        <div class="team-card" id="card-a">
+          <div class="team-flag-wrap" id="flag-a">🌍</div>
+          <label class="selector-label" for="team-a">Team A</label>
+          <select id="team-a" class="team-select">
+            <option value="">— Select Team —</option>
+          </select>
+          <div class="mini-stats" id="mini-a"></div>
+        </div>
+
+        <!-- VS divider -->
+        <div class="vs-divider">
+          <span class="vs-text">VS</span>
+          <button class="btn btn-random" id="btn-random" title="Pick two random teams">
+            <span class="icon">🎲</span> Random Match
+          </button>
+        </div>
+
+        <!-- Team B -->
+        <div class="team-card" id="card-b">
+          <div class="team-flag-wrap" id="flag-b">🌍</div>
+          <label class="selector-label" for="team-b">Team B</label>
+          <select id="team-b" class="team-select">
+            <option value="">— Select Team —</option>
+          </select>
+          <div class="mini-stats" id="mini-b"></div>
+        </div>
+
+      </div><!-- /team-selectors -->
+
+      <!-- Predict button -->
+      <div class="predict-btn-wrap">
+        <button class="btn btn-predict" id="btn-predict" disabled>
+          Predict Match Result
+        </button>
+      </div>
+
+      <!-- Loading overlay -->
+      <div class="loading-overlay" id="loading" aria-hidden="true">
+        <div class="loading-inner">
+          <div class="ball-loader">
+            <div class="ball"></div>
+          </div>
+          <p class="loading-text">Analysing team data…</p>
+        </div>
+      </div>
+
+      <!-- Results panel -->
+      <div class="result-panel" id="result-panel" aria-live="polite" hidden>
+
+        <!-- Winner banner -->
+        <div class="winner-banner" id="winner-banner">
+          <span class="winner-label">Predicted Winner</span>
+          <span class="winner-name" id="winner-name"></span>
+          <span class="winner-flag" id="winner-flag"></span>
+        </div>
+
+        <!-- Probability bar -->
+        <div class="prob-section">
+          <div class="prob-row">
+            <span class="prob-team" id="prob-label-a"></span>
+            <div class="prob-bar-track">
+              <div class="prob-bar-fill fill-a" id="prob-bar-a"></div>
+              <div class="prob-bar-fill fill-b" id="prob-bar-b"></div>
+            </div>
+            <span class="prob-team" id="prob-label-b"></span>
+          </div>
+          <div class="prob-pct-row">
+            <span class="prob-pct" id="prob-pct-a"></span>
+            <span class="prob-pct draw-pct" id="prob-pct-draw"></span>
+            <span class="prob-pct" id="prob-pct-b"></span>
+          </div>
+        </div>
+
+        <!-- Radar / stats comparison -->
+        <div class="stats-comparison">
+          <h3 class="compare-title">Ratings Breakdown</h3>
+          <div class="stats-grid" id="stats-grid"></div>
+        </div>
+
+        <!-- Explanation -->
+        <div class="explanation-box" id="explanation-box">
+          <h3 class="explain-title">📋 Prediction Analysis</h3>
+          <p id="explanation-text"></p>
+        </div>
+
+      </div><!-- /result-panel -->
+    </div>
+  </section>
+
+  <!-- ====== TOP 10 TEAMS ====== -->
+  <section class="top-teams-section" id="top-teams">
+    <div class="container">
+      <h2 class="section-title">Top 10 Strongest Nations</h2>
+      <p class="section-sub">Ranked by composite overall rating heading into the 2026 tournament.</p>
+      <ol class="top-teams-list" id="top-teams-list"></ol>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="site-footer">
+    <p>FIFA 2026 Match Predictor &mdash; Built for fans. Predictions are algorithmic estimates, not official forecasts.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
